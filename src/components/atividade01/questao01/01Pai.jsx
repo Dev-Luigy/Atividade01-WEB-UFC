@@ -1,10 +1,13 @@
 import { Filho } from './01Filho';
 
 const style = {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
-    gridTemplateRows: '100px repeat(2, 0.5fr)',
+    display: 'flex',
+    flexDirection: 'row',
+    
+    overflow: 'auto',
     alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
     height: '100%',
     padding: '20px',
     gap: '20px',
@@ -19,8 +22,15 @@ export function Pai({ numero, children }) {
     return (
         <div style={style}>
             <h2 style={{
-                marginBottom: '10px',
-                gridColumn: '1 / 4',
+                padding: '20px',
+                margin: '0',
+                borderRight: '2px solid black',
+                borderTop: '2px solid black',
+                borderBottom: '2px solid black',
+                borderRadius: '20px 0 0 20px',
+
+                backgroundColor: '#55AFAD',
+                
             }} >Pai {numero}</h2>
             {children}
         </div>

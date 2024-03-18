@@ -13,6 +13,7 @@ const Header = () => {
     return (
         <header style={
             {
+                zIndex: '2',
                 margin: '0 auto',
                 backgroundColor: 'lightblue',
                 padding: '40px',
