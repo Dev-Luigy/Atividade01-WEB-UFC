@@ -4,6 +4,14 @@ import { Filho } from './components/atividade01/questao01/01Filho';
 import Header from './components/Header';
 import Body from './components/Body';
 import MeuPc from './components/atividade01/02MeuPc';
+import Battle from './components/atividade01/03Batalha';
+
+const images = {
+  baki: "https://scc10.com.br/wp-content/uploads/2022/05/Baki-campeao-850x560-1.jpg",
+  kengan: "https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABUxMUDlC5TZ7phcya3JBXdteM7cd-fBMNjRZzrgPXfVJItEgY5s_k00kRmxdZ0aox23pvBn6qZFyuMuU5Wa2mEtjpdqCnHvB-cPW.jpg?r=865",
+  ichigo: "https://dailyanimeart.files.wordpress.com/2016/06/bleach-678-ichigos-new-bankai-by-kiraka-hitomi.jpg?w=1200",
+  yhwach: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/06/Yhwach-TYBW.jpg"
+}
 
 const style = {
   containerItem: {
@@ -77,8 +85,18 @@ function App() {
         </div>
 
         <h1>Questão 03</h1>
+        <Battle.World>
+          <Battle.BattleArena name="Clube da Luta">
+            <Battle.Hero name="Baki" image={images.baki} />
+            <Battle.Enemy name="Kengan" image={images.kengan} />
+          </Battle.BattleArena>
+          <Battle.BattleArena name="Palácio do Rei das Almas">
+            <Battle.Hero name="Ichigo" image={images.ichigo} />
+            <Battle.Enemy name="Yhwach" image={images.yhwach} />
+          </Battle.BattleArena>
+        </Battle.World>
         
-      </Body >
+        </Body >
     </div>
   );
 }
