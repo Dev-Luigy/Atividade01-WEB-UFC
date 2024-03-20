@@ -6,6 +6,7 @@ import QuestionNumber from './components/QuestioNumber';
 
 //solve Components:
 import FunctionContextA from './components/06_context/FunctionContextA';
+import GrandFatherComp from './components/02Pokemon/GrandFatherComp';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           </Question>
           <QuestionNumber>2</QuestionNumber>
           <Question>
-            <p></p>
+            <GrandFatherComp />
           </Question>
         </Body>
     </div>
