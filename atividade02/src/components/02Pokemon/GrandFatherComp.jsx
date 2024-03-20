@@ -1,14 +1,40 @@
+'use state'
 import ChieldComp from './ChieldComp';
 import FamilyContext from './FamilyContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import './GrandFatherComp.css';
+
+const styles = {
+    GrandFather: {
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gridTemplateRows: '1fr',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '10px'
+    },
+}
+
 
 export default function GrandFatherComp() {
-    const numero = useContext(FamilyContext);
+    const [number, setNumber] = useState(1)
+    function upNumber() {
+        setNumber(number + 3);
+    }
     return (
-        <div>
-            <h1>Grand Chield</h1>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${numero}.png`} alt="Pukemon" />
-            <ChieldComp />
-        </div>
+        <FamilyContext.Provider value={number}>
+            <div style={styles.GrandFather}>
+                <div style={{
+                    borderBottom: '2px solid black',
+                    borderRadius: '100px',
+                }}>
+                    <h1>Grand Chield</h1>
+                    
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`} alt="Pukemon" />
+                </div>
+                <button onClick={upNumber}>Number up!</button>
+                <ChieldComp />
+            </div>
+        </FamilyContext.Provider>
     );
 }

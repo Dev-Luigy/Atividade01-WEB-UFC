@@ -9,3 +9,23 @@ body {
   padding: 20px;
   /* height: 100%; */
 }
+
+.pokemonButton{
+  background-color: #f5f5f5;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 10px 24px;
+  transition-duration: 0.4s;
+}
+
+.pokemonButton:hover {
+  background-color: #3a6186;
+  color: white;
+}

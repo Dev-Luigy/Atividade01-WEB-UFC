@@ -17,7 +17,7 @@ function App() {
           <Question>
             <FunctionContextA />
           </Question>
-          <QuestionNumber>2</QuestionNumber>
+          <QuestionNumber>2 & 3</QuestionNumber>
           <Question>
             <GrandFatherComp />
           </Question>
