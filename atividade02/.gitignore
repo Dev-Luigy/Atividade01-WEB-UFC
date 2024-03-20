@@ -11,8 +11,6 @@
 # production
 /build
 
-/ufc_2023_1
-
 # misc
 .DS_Store
 .env.local
