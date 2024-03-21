@@ -28,7 +28,7 @@ export default function GrandFatherComp() {
                     borderBottom: '2px solid black',
                     borderRadius: '100px',
                 }}>
-                    <h1>Grand Chield</h1>
+                    <h1>Grand Father</h1>
                     
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`} alt="Pukemon" />
                 </div>
