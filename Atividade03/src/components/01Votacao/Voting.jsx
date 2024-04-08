@@ -3,25 +3,31 @@ import City from "./City";
 import styles from "./Voting.module.css";
 
 function Voting ({cities, cb}) {
-    const [votes, setVotes] = useState(0);
-    const [mostVotedCity, setMostVotedCity] = useState('');
-    const [mostVotedCityVotes, setMostVotedCityVotes] = useState(0);
+    const [votes, setVotes] = useState([]);
+    const [mostVotedCity, setMostVotedCity] = useState([]);
+    const [leastvotedCity, setLeastVotedCity] = useState([]);
+    let i = 0;
 
-    useEffect(() => {
-        cities.map(city => {
-            city.cb(votes);
-        });
-    }, [votes]);
-
-    useEffect(() => {
-        cities.map(city => {
-            if (city.cb(votes) > mostVotedCityVotes) {
-                setMostVotedCity(city.name);
-                setMostVotedCityVotes(city.cb(votes));
-            }
-        });
+    const handleVotes = (vote) => {
+        let array = [...votes]
+        array[vote.index] = vote;
+        setVotes(array)
     }
-    , [votes]);
+
+    useEffect(() => {
+        if (mostVotedCity.length === 0 && leastvotedCity.length === 0) {
+            setVotes(cities.map(city => ({name: city.name, votes: 0})))
+            setLeastVotedCity({name: '', votes: 0});
+            setMostVotedCity({name: '', votes: 0});
+        } else {
+            if (!votes) return;
+            setMostVotedCity(votes.reduce((prev, current) => (prev.votes > current.votes) ? prev : current));
+            setLeastVotedCity(votes.reduce((prev, current) => (prev.votes < current.votes) ? prev : current));
+        }
+        cb({mostVotedCity, leastvotedCity});
+    }
+    , [votes, mostVotedCity, leastvotedCity, cb, cities]);
+
 
     return (
         <div className={styles.container}>
@@ -31,7 +37,7 @@ function Voting ({cities, cb}) {
             </div>
             {cities.map(city => {
                 return (
-                    <City name={city.name} description={city.description} image={city.image} cb={city.cb} />
+                    <City name={city.name} description={city.description} key={i} image={city.image} index={i++} cb={handleVotes} />
                 )
             })}
         </div>

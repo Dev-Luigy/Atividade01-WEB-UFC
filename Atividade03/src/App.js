@@ -6,14 +6,20 @@ import Header from './components/Header';
 import { useState } from 'react';
 
 function App() {
-  const [mostVotedCity, setMostVotedCity] = useState('');
+  const [citiesResume, setCitiesResume] = useState([{name: ""},{name: ""}]);
 
   return (
     <>
       <Header />
       <Body>
-        <Voting cities={cities} cb={setMostVotedCity} />
-        <h2>Most voted city:{mostVotedCity} </h2>
+        <Voting cities={cities} cb={setCitiesResume} />
+        {
+          citiesResume.mostVotedCity && citiesResume.leastvotedCity &&
+          <div style={{display: "flex", flexDirection: "row", gap:"50px"}}>
+            <h2>Least voted city: {citiesResume.leastvotedCity.name}</h2>
+            <h2>Most voted city: {citiesResume.mostVotedCity.name}</h2>
+          </div>
+        }
       </Body>
 
     </>

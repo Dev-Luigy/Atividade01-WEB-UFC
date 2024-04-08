@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styles from "./City.module.css";
 
-function City ({name, description, image, cb}) {
+function City ({name, description, image, index,cb}) {
     const [voteCount, setVoteCount] = useState(0);
 
     function handleVoteCount() {
         setVoteCount(voteCount + 1);
-        cb(voteCount);
+        cb({name, votes: voteCount + 1, index})
     }
 
     return (
