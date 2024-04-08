@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: CaskaydiaCove NF, sans-serif;
+}
+
+body {
+    background: #3a6186; 
+    background: -webkit-linear-gradient(to bottom, #3a6186, #89253e); 
+    /* background: linear-gradient(to bottom, #3a6186, #89253e);  */
+  }
+  
+.App {
+text-align: center;
+padding: 20px;
+/* height: 100%; */
+}

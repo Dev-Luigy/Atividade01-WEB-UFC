@@ -1,20 +1,6 @@
 import { useEffect, useState } from "react";
 import City from "./City";
-
-const styles = {
-    container: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        border: '1px solid black',
-        padding: '10px',
-        margin: '10px',
-        borderRadius: '10px',
-        height: '100px',
-        width: '90%',
-    },
-}
+import styles from "./Voting.module.css";
 
 function Voting ({cities, cb}) {
     const [votes, setVotes] = useState(0);
@@ -22,13 +8,13 @@ function Voting ({cities, cb}) {
     const [mostVotedCityVotes, setMostVotedCityVotes] = useState(0);
 
     useEffect(() => {
-        cities.forEach(city => {
+        cities.map(city => {
             city.cb(votes);
         });
     }, [votes]);
 
     useEffect(() => {
-        cities.forEach(city => {
+        cities.map(city => {
             if (city.cb(votes) > mostVotedCityVotes) {
                 setMostVotedCity(city.name);
                 setMostVotedCityVotes(city.cb(votes));
@@ -37,14 +23,13 @@ function Voting ({cities, cb}) {
     }
     , [votes]);
 
-
-    useEffect(() => {
-        cb(mostVotedCity);
-    }, [mostVotedCity]);
-
     return (
-        <div style={styles.container}>
-            {cities.forEach(city => {
+        <div className={styles.container}>
+            <div className={styles.voteMessage}>
+                <h2>Vote for your favorite city!</h2>
+                <p>Click on the "Vote" button to vote for a city.</p>
+            </div>
+            {cities.map(city => {
                 return (
                     <City name={city.name} description={city.description} image={city.image} cb={city.cb} />
                 )
