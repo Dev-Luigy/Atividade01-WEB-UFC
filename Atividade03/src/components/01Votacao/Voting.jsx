@@ -32,7 +32,7 @@ function Voting ({cities, cb}) {
     return (
         <div className={styles.container}>
             <div className={styles.voteMessage}>
-                <h2>Vote for your favorite city!</h2>
+                <h1>Vote for your favorite city!</h1>
                 <p>Click on the "Vote" button to vote for a city.</p>
             </div>
             {cities.map(city => {

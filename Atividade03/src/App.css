@@ -3,16 +3,39 @@
     padding: 0;
     box-sizing: border-box;
     font-family: CaskaydiaCove NF, sans-serif;
+    font-size: 1.25rem;
 }
 
 body {
     background: #3a6186; 
     background: -webkit-linear-gradient(to bottom, #3a6186, #89253e); 
-    /* background: linear-gradient(to bottom, #3a6186, #89253e);  */
+    background: linear-gradient(to bottom, #3a6186, #89253e); 
+}
+
+.citiesInfo{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  padding: 20px;
+  background-color: #78f7;
+  margin-top: -20px;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px black solid;
+}
+
+
+@media screen and (max-width: 930px) {
+    .citiesInfo{
+      width: 450px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+  .citiesInfo{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 10px;
   }
-  
-.App {
-text-align: center;
-padding: 20px;
-/* height: 100%; */
 }
