@@ -1,6 +1,6 @@
 .father {
     border: 2px solid #000;
-    padding: 0 5px;
+    padding: 10px 5px;
     margin: 10px;
     width: 95%;
     height: 350px;
@@ -10,8 +10,8 @@
     /* align-items: center; */
     justify-content: center;
     align-content: center;
-    background-color: #78f7;
-    border-radius: 600px 600px 10px 10px;
+    background-color: #94B2F2;
+    border-radius: 50px 50px 10px 10px;
     border-top: 3px white solid;
 }
 
@@ -24,9 +24,9 @@
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    width: 50%;
-    height: 100px;
-    border-radius: 0 0 50px 50px;
+    width: 90%;
+    height: 90%;
+    border-radius: 20px 20px 50px 50px;
 
     place-self: center;
     align-self: self-start;
@@ -36,10 +36,32 @@
     align-content: space-around;
     align-items: center;
     justify-content: space-around;
+    
+
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-bottom: 2px solid black;
+
+    transition: 1s;
 
 }
 
 .header h1{
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 550px) {
+    .header{
+        width: 75%;
+    }
+    
+}
+
+
+@media screen and (max-width: 450px) {
+    .header{
+        width: 50%;
+    }
+    
 }

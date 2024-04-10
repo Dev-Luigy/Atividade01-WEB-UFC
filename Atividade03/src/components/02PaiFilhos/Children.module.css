@@ -1,0 +1,18 @@
+.childrenButton {
+    margin: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+
+.childrenButton:hover {
+    background-color: #e0e0e0;
+}
+
+.childrenBox {
+    align-self: flex-end;
+}

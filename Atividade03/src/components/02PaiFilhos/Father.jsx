@@ -9,12 +9,12 @@ function Father({vetor = [1,2,3,4,5]}){
     return (
         <div className={styles.father}>
             <div className={styles.header}>
-                <h1>Vetor: [{}]</h1>
-                <h1>Resultado: {}</h1>
+                <h1>Vetor: [{vetor.map(e => e + (e !== vetor[vetor.length - 1] ? ',' : ''))}]</h1>
+                <h1>Resultado: {result}</h1>
             </div>
-            <Children childrenFunction={higherChildren} cb={console.log} />
-            <Children childrenFunction={smallerChildren} cb={console.log} />
-            <Children childrenFunction={averageChildren} cb={console.log} />
+            <Children name="Get greater" vetor={vetor} childrenFunction={higherChildren} cb={setResult} />
+            <Children name="Get smaller" vetor={vetor} childrenFunction={smallerChildren} cb={setResult} />
+            <Children name="Get average" vetor={vetor} childrenFunction={averageChildren} cb={setResult} />
         </div> 
     )
 
