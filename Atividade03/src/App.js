@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Header />
       <Body>
-        <h1 style={{marginTop: "20px", marginBottom: "-20px"}}>Questão 01</h1>
+        <h1 style={{marginTop: "20px", marginBottom: "-20px"}}>Question 01</h1>
         <Voting cities={cities} cb={setCitiesResume} />
         {
           citiesResume.mostVotedCity && citiesResume.leastvotedCity &&
@@ -23,8 +23,8 @@ function App() {
             <h2>Mostly voted city: <strong><span style={{color: "#2f2f55"}}>{citiesResume.mostVotedCity.name}</span></strong></h2>
           </div>
         }
-        <h1 style={{marginTop: "20px"}}>Questão 02</h1>
-        <Father />
+        <h1 style={{marginTop: "20px"}}>Question 02</h1>
+        <Father vetor={[50, 20, 50, 50, 30, 20]} />
       </Body>
     </div>
   );

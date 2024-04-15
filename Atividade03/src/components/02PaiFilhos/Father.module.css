@@ -55,13 +55,30 @@
     .header{
         width: 75%;
     }
+
+    .father {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 100px;
+        align-content: center;
+
+    }
     
 }
 
 
 @media screen and (max-width: 450px) {
     .header{
-        width: 50%;
+        width: 66%;
+        height: 50%;
+        align-self: center;
+    }
+
+    .father{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        height: 400px;
     }
     
 }

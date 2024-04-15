@@ -16,3 +16,19 @@
 .childrenBox {
     align-self: flex-end;
 }
+
+@media screen and (max-width: 550px) {
+    .childrenButton {
+        padding: 2px;
+        justify-self: center;
+    }
+    
+}
+
+@media screen and (max-width: 450px) {
+    .childrenButton {
+        padding: 2px;
+
+    }
+    
+}
