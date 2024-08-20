@@ -1,0 +1,125 @@
+Props Drilling é um problema comum em aplicações React onde a informação precisa ser passada por múltiplos níveis de componentes. Isso pode tornar o código difícil de manter e compreender, especialmente quando você precisa passar dados profundamente através da árvore de componentes.
+
+<App>
+  <Parent>
+    <ChildA>
+      <ChildB>
+        <ChildC>
+          <DeepComponent>
+            // Aqui precisa do dado
+          </DeepComponent>
+        </ChildB>
+      </ChildA>
+    </ChildA>
+  </Parent>
+</App>
+
+
+// App.js
+const App = () => {
+  const user = { name: "Alice", loggedIn: true };
+
+  return (
+    <Parent user={user} />
+  );
+};
+
+// Parent.js
+const Parent = ({ user }) => (
+  <ChildA user={user} />
+);
+
+// ChildA.js
+const ChildA = ({ user }) => (
+  <ChildB user={user} />
+);
+
+// ChildB.js
+const ChildB = ({ user }) => (
+  <ChildC user={user} />
+);
+
+// ChildC.js
+const ChildC = ({ user }) => (
+  <DeepComponent user={user} />
+);
+
+// DeepComponent.js
+const DeepComponent = ({ user }) => (
+  <div>Welcome, {user.name}!</div>
+);
+
+Se DeepComponent precisa de um dado específico, por exemplo, um usuário logado, você precisará passar esse dado como prop através dos componentes Parent, ChildA, ChildB, e assim por diante. Isso resulta em um código como este:
+
+
+// App.js
+const App = () => {
+  const user = { name: "Alice", loggedIn: true };
+
+  return (
+    <Parent user={user} />
+  );
+};
+
+// Parent.js
+const Parent = ({ user }) => (
+  <ChildA user={user} />
+);
+
+// ChildA.js
+const ChildA = ({ user }) => (
+  <ChildB user={user} />
+);
+
+// ChildB.js
+const ChildB = ({ user }) => (
+  <ChildC user={user} />
+);
+
+// ChildC.js
+const ChildC = ({ user }) => (
+  <DeepComponent user={user} />
+);
+
+// DeepComponent.js
+const DeepComponent = ({ user }) => (
+  <div>Welcome, {user.name}!</div>
+);
+
+Resolução:
+Context API do React permite que você compartilhe dados através da árvore de componentes sem precisar passar props manualmente para cada nível intermediário. Ele cria um contexto que pode ser consumido por qualquer componente que esteja dentro do provedor desse contexto.
+
+// UserContext.js
+import React, { createContext, useContext } from 'react';
+
+const UserContext = createContext(null);
+
+export const UserProvider = ({ children }) => {
+  const user = { name: "Alice", loggedIn: true };
+  return (
+    <UserContext.Provider value={user}>
+      {children}
+    </UserContext.Provider>
+  );
+};
+
+export const useUser = () => useContext(UserContext);
+
+agora podemos mandar o dado apenas para o componente filho que irá utilizar
+
+
+// DeepComponent.js
+import React from 'react';
+import { useUser } from './UserContext';
+
+const DeepComponent = () => {
+  const user = useUser();
+
+  return (
+    <div>
+      Welcome, {user.name}!
+    </div>
+  );
+};
+
+export default DeepComponent;
